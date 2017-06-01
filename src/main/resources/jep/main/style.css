@@ -1,0 +1,36 @@
+.root{
+    -fx-font-family: "Consolas";
+    -fx-font-size: 12.0pt;
+	-fx-text-fill: #e3e3e3;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-base: #1d1d1d;
+}
+
+.button{
+	-fx-text-fill: #e3e3e3;
+}
+
+.label{
+	-fx-text-fill: #e3e3e3;
+} 
+
+.radio-button{
+	-fx-text-fill: #e3e3e3;
+}
+
+.check-box{
+	-fx-text-fill: #e3e3e3;
+}
+
+.choice-box{
+	-fx-text-fill: #e3e3e3;
+}
+
+.combo-box{
+	-fx-text-fill: #e3e3e3;
+}
+
+.tree-cell{
+	-fx-text-fill: #e3e3e3;
+}

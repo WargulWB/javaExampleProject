@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
+
+<BorderPane prefHeight="600.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jep.main.MainFrameController">
+	<bottom>
+		<ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+			<buttons>
+				<Button fx:id="buttonRun" disable="true" mnemonicParsing="false" onAction="#runSelectedExample" text="%mainFrame.run" />
+			</buttons>
+			<BorderPane.margin>
+				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+			</BorderPane.margin>
+		</ButtonBar>
+	</bottom>
+	<center>
+		<TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+			<tabs>
+				<Tab fx:id="tabOverview" closable="false" text="%mainFrame.overview">
+					<content>
+						<VBox spacing="5.0">
+							<children>
+								<Label text="%mainFrame.arguments" />
+								<TextArea fx:id="textAreaArguments" />
+								<TreeView fx:id="treeViewExamples" />
+							</children>
+							<padding>
+								<Insets left="5.0" right="5.0" top="5.0" />
+							</padding>
+						</VBox>
+					</content>
+				</Tab>
+            <Tab fx:id="tabDescription" closable="false" disable="true" text="%mainFrame.description">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <children>
+                        <Label text="%mainFrame.relevantPackages" />
+                        <TextArea fx:id="textAreaRelevantPackages" prefHeight="150.0" />
+                        <Label text="%mainFrame.relevantClasses" />
+                        <TextArea fx:id="textAreaRelevantClasses" prefHeight="200.0" />
+                        <Label text="%mainFrame.descriptionLabel" />
+                        <TextArea fx:id="textAreaDescription" prefHeight="400.0" wrapText="true" />
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+				<Tab fx:id="tabOutput" closable="false" disable="true" text="%mainFrame.output">
+               <content>
+                  <ScrollPane>
+                     <content>
+            						<TextFlow fx:id="textFlowOutput">
+            							<padding>
+            								<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            							</padding>
+            						</TextFlow>
+                     </content>
+                  </ScrollPane>
+               </content>
+				</Tab>
+			</tabs>
+		</TabPane>
+	</center>
+</BorderPane>
