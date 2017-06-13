@@ -133,10 +133,10 @@ public class MainFrameController {
         }
         textAreaRelevantClasses.setText(sb.toString());
 
-        updateDescriptionTextFlow(selectedExample.getDescription());
+        updateDescriptionTextArea(selectedExample.getDescription());
     }
 
-    private void updateDescriptionTextFlow(String description) {
+    private void updateDescriptionTextArea(String description) {
         textAreaDescription.setText(description);
     }
 
@@ -180,12 +180,15 @@ public class MainFrameController {
         textFlowOutput.getChildren().clear();
         Text logText = new Text(log);
         logText.setFill(Color.rgb(0xe3, 0xe3, 0xe3));
+        textFlowOutput.getChildren().add(new Text("\n"));
         textFlowOutput.getChildren().add(logText);
     }
 
-    private String packArguments() {
-        String arguments = textAreaArguments.getText();
-        arguments = arguments.replace('\n', ' ');
+    private String[] packArguments() {
+        String argumentsText = textAreaArguments.getText();
+        argumentsText = argumentsText.trim();
+        argumentsText = argumentsText.replaceAll("\\s+", " ");
+        String[] arguments = argumentsText.split(" ");
         return arguments;
     }
 
