@@ -23,6 +23,14 @@ public interface Example extends ExampleContent {
     void log(String text);
 
     /**
+     * Appends the log by the given <code>object</code> (writing null if it's values is null or
+     * writing {@link Object#toString()} otherwise).
+     * 
+     * @param object
+     */
+    void log(Object object);
+
+    /**
      * Appends the log by a new line symbol.
      */
     void logln();
@@ -34,6 +42,15 @@ public interface Example extends ExampleContent {
      * @param line
      */
     void logln(String line);
+
+    /**
+     * Appends the log by the given <code>object</code> (writing null if it's values is null or
+     * writing {@link Object#toString()} otherwise) and afterwards appends the log by a new line
+     * symbol.
+     * 
+     * @param object
+     */
+    void logln(Object object);
 
     /**
      * Clears the log.

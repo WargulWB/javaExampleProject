@@ -16,6 +16,11 @@ import javafx.stage.Stage;
 import jep.JepModule;
 import jep.example.ExampleRegistry;
 import jep.example.ExampleType;
+import jep.example.general.StreamApiExample;
+import jep.example.general.StringFormatExample;
+import jep.example.general.lambda.LambdaExpressionExample;
+import jep.example.io.WriteAndReadTextFilesPostJava7Example;
+import jep.example.io.WriteAndReadTextFilesPreJava7Example;
 import jep.example.pattern.builderPattern.BuilderPatternExample;
 
 /**
@@ -48,11 +53,24 @@ public class JavaExamplesProjectMain extends Application {
     }
 
     private void registerExamples() {
+        ExampleType typeGeneral = new ExampleType("exampleType.general");
         ExampleType typePattern = new ExampleType("exampleType.patterns");
+        ExampleType typeIo = new ExampleType("exampleType.io");
+        exampleRegistry.registerType(typeGeneral);
         exampleRegistry.registerType(typePattern);
+        exampleRegistry.registerType(typeIo);
         // exampleRegistry.register(new SingletonPatternExample(), typePattern);
         // exampleRegistry.register(new FactoryPatternExample(), typePattern);
+        exampleRegistry.register(injector.getInstance(StreamApiExample.class),
+                typeGeneral);
+        exampleRegistry.register(injector.getInstance(LambdaExpressionExample.class),
+                typeGeneral);
+        exampleRegistry.register(injector.getInstance(StringFormatExample.class),
+                typeGeneral);
         exampleRegistry.register(injector.getInstance(BuilderPatternExample.class), typePattern);
+        exampleRegistry.register(injector.getInstance(WriteAndReadTextFilesPreJava7Example.class), typeIo);
+        exampleRegistry.register(injector.getInstance(WriteAndReadTextFilesPostJava7Example.class),
+                typeIo);
     }
 
     public static void main(String... args) {

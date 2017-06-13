@@ -1,0 +1,7 @@
+- JavaFx examples
+- LambdaExpression Examples
+-> own functional interface
+-> list stream api
+- Optional examples
+- XML io
+- jquery /database

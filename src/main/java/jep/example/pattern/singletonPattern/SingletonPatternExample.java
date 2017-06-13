@@ -21,16 +21,4 @@ public class SingletonPatternExample extends AbstractExample {
         return null;
     }
 
-    @Override
-    public String[] getRelevantPackagesInformation() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public String[] getRelevantClassesInformation() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
 }

@@ -63,12 +63,6 @@ public class BuilderPatternExample extends AbstractExample {
     }
 
     @Override
-    public String[] getRelevantPackagesInformation() {
-        String[] packages = {getPackageNameOfClass(BuilderPatternExample.class)};
-        return packages;
-    }
-
-    @Override
     public String[] getRelevantClassesInformation() {
         String[] classes =
                 {BuilderPatternExample.class.getSimpleName(), Person.class.getSimpleName(),
