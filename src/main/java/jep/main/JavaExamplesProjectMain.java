@@ -22,6 +22,7 @@ import jep.example.general.lambda.LambdaExpressionExample;
 import jep.example.io.WriteAndReadTextFilesPostJava7Example;
 import jep.example.io.WriteAndReadTextFilesPreJava7Example;
 import jep.example.pattern.builderPattern.BuilderPatternExample;
+import jep.example.pattern.listenerPattern.ListenerPatternExample;
 
 /**
  * This is the main class of the java examples project which provides the {@link #main(String...)}
@@ -60,17 +61,16 @@ public class JavaExamplesProjectMain extends Application {
         exampleRegistry.registerType(typePattern);
         exampleRegistry.registerType(typeIo);
         // exampleRegistry.register(new SingletonPatternExample(), typePattern);
-        // exampleRegistry.register(new FactoryPatternExample(), typePattern);
-        exampleRegistry.register(injector.getInstance(StreamApiExample.class),
-                typeGeneral);
-        exampleRegistry.register(injector.getInstance(LambdaExpressionExample.class),
-                typeGeneral);
-        exampleRegistry.register(injector.getInstance(StringFormatExample.class),
-                typeGeneral);
+        // GENERAL
+        exampleRegistry.register(injector.getInstance(StreamApiExample.class), typeGeneral);
+        exampleRegistry.register(injector.getInstance(LambdaExpressionExample.class), typeGeneral);
+        exampleRegistry.register(injector.getInstance(StringFormatExample.class), typeGeneral);
+        // PATTERN
         exampleRegistry.register(injector.getInstance(BuilderPatternExample.class), typePattern);
+        exampleRegistry.register(injector.getInstance(ListenerPatternExample.class), typePattern);
+        // IO
         exampleRegistry.register(injector.getInstance(WriteAndReadTextFilesPreJava7Example.class), typeIo);
-        exampleRegistry.register(injector.getInstance(WriteAndReadTextFilesPostJava7Example.class),
-                typeIo);
+        exampleRegistry.register(injector.getInstance(WriteAndReadTextFilesPostJava7Example.class), typeIo);
     }
 
     public static void main(String... args) {

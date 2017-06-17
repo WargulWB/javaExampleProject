@@ -26,6 +26,10 @@ import jep.example.ExampleContent;
 import jep.example.ExampleRegistry;
 import jep.example.ExampleType;
 
+/**
+ * This class implements the controller of the <tt>MainFrameView.fxml</tt>.
+ *
+ */
 public class MainFrameController {
 
     @Inject

@@ -12,7 +12,7 @@ import com.google.inject.Inject;
 public abstract class AbstractExample implements Example {
     
     @Inject
-    private ResourceBundle bundle;
+    protected ResourceBundle bundle;
 
     private final StringBuilder logger = new StringBuilder();
 

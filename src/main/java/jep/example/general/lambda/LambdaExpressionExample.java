@@ -2,8 +2,9 @@ package jep.example.general.lambda;
 
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -17,9 +18,9 @@ public class LambdaExpressionExample extends AbstractExample {
     @Override
     public String run(String... arguments) {
         logln("This first example shows the usage of the functional interface "
-                + MathFunctionInt.class.getSimpleName() + "\n"
+                + MathFunction.class.getSimpleName() + "\n"
                 + "to define a mathematical operation via a lambda expression and how to calculate the result.");
-        MathFunctionInt f = (x1, x2) -> x1 + x2;
+        MathFunction<Integer> f = (x1, x2) -> x1 + x2;
         int a = 5;
         int b = 3;
         int y = f.apply(a, b);
@@ -133,7 +134,46 @@ public class LambdaExpressionExample extends AbstractExample {
             i++;
         }
         logln();
+        logLineSeparator();
 
+        logln("Often the actual parameters are stored inside a certain object, the lambda expressions defines how this internal state is to be handled.");
+        logln("A good example are the stream API methods.");
+        logln("We will store some integers as data in an instance of "
+                + DataStorage.class.getSimpleName()
+                + " and return the maximal value stored via the "
+                + DataStorage.class.getSimpleName() + "#select()\n"
+                + "method using a lambda expression - which returns the maximal value - as "
+                + SelectionFunction.class.getSimpleName() + " instance.");
+        DataStorage<Integer> dataStorage = new DataStorage<>(1, 4, 80, 1_013, 104, 12, 612);
+        log("The stored data is:");
+        i = 0;
+        for (int x : dataStorage.getDataAsUnmodifiableSet()) {
+            log(x);
+            if (i < dataStorage.getDataAsUnmodifiableSet().size() - 1) {
+                log(", ");
+            }
+            i++;
+        }
+        logln();
+        Optional<Integer> optionalMax = dataStorage.select(data -> {
+            if (data.size() == 0) {
+                return null;
+            }
+            Iterator<Integer> itr = data.iterator();
+            int max = itr.next();
+            while (itr.hasNext()) {
+                int current = itr.next();
+                if (current > max) {
+                    max = current;
+                }
+            }
+            return max;
+        });
+        if (optionalMax.isPresent()) {
+            logln("The maximal value stored in the data storage was: " + optionalMax.get());
+        } else {
+            logln("The data storage did not contain any data.");
+        }
 
         return getLoggedText();
     }
@@ -181,8 +221,9 @@ public class LambdaExpressionExample extends AbstractExample {
     @Override
     public String[] getRelevantClassesInformation() {
         String[] relevantClasses = {LambdaExpressionExample.class.getSimpleName(),
-                MathFunctionInt.class.getSimpleName(), Function.class.getSimpleName(),
-                BiFunction.class.getSimpleName()};
+                MathFunction.class.getSimpleName(), Person.class.getSimpleName(),
+                DataStorage.class.getSimpleName(), SelectionFunction.class.getSimpleName(),
+                Function.class.getSimpleName(), BiFunction.class.getSimpleName()};
         return relevantClasses;
     }
 
@@ -198,48 +239,4 @@ public class LambdaExpressionExample extends AbstractExample {
         return "example.lambdaExpression";
     }
 
-
-    /**
-     * Simple class to model a person - defined only via its full name and age.
-     *
-     */
-    private class Person {
-        protected final String fullName;
-        protected final int age;
-
-        /**
-         * Constructs a new instance of {@link Person}.
-         * 
-         * @param fullName given full name of the person
-         * @param age given age of the person
-         */
-        public Person(String fullName, int age) {
-            assert (age > 0);
-            this.fullName = Objects.requireNonNull(fullName);
-            this.age = age;
-        }
-
-        /**
-         * Returns the full name of this person.
-         * 
-         * @return
-         */
-        public String getFullName() {
-            return fullName;
-        }
-
-        /**
-         * Returns the age of this person.
-         * 
-         * @return
-         */
-        public int getAge() {
-            return age;
-        }
-
-        @Override
-        public String toString() {
-            return "[name=" + fullName + ", age=" + age + ']';
-        }
-    }
 }

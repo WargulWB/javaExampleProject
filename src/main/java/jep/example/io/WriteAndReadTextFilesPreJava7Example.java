@@ -8,9 +8,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.ResourceBundle;
-
-import com.google.inject.Inject;
 
 import jep.example.AbstractExample;
 
@@ -21,9 +18,6 @@ public class WriteAndReadTextFilesPreJava7Example extends AbstractExample {
     private static final int COUNT = 10;
     private static final int APPEND_COUNT = 5;
     private static final int TOTAL_COUNT = COUNT + APPEND_COUNT;
-
-    @Inject
-    private ResourceBundle bundle;
 
     @Override
     public String run(String... arguments) {
@@ -107,8 +101,7 @@ public class WriteAndReadTextFilesPreJava7Example extends AbstractExample {
 
     @Override
     public String getDescription() {
-        return String.format(bundle.getString("example.writeAndReadTextFilesPostJava7.description"),
-                TEXT_TO_WRITE, COUNT, APPEND_COUNT);
+        return String.format(super.getDescription(), TEXT_TO_WRITE, COUNT, APPEND_COUNT);
     }
 
     @Override

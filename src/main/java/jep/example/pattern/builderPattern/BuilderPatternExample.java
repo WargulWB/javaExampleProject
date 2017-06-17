@@ -1,9 +1,5 @@
 package jep.example.pattern.builderPattern;
 
-import java.util.ResourceBundle;
-
-import com.google.inject.Inject;
-
 import jep.example.AbstractExample;
 
 /**
@@ -12,9 +8,6 @@ import jep.example.AbstractExample;
  *
  */
 public class BuilderPatternExample extends AbstractExample {
-
-    @Inject
-    private ResourceBundle bundle;
 
     @Override
     public String run(String... arguments) {
@@ -57,8 +50,8 @@ public class BuilderPatternExample extends AbstractExample {
 
     @Override
     public String getDescription() {
-        return String.format(bundle.getString("example.builderPattern.description"),
-                BuilderPatternExample.class.getSimpleName(), Person.class.getSimpleName(),
+        return String.format(super.getDescription(), BuilderPatternExample.class.getSimpleName(),
+                Person.class.getSimpleName(),
                 Person.class.getSimpleName() + "." + Person.Builder.class.getSimpleName());
     }
 

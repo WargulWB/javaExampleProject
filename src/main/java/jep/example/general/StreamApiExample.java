@@ -6,11 +6,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
-import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import com.google.inject.Inject;
 
 import jep.example.AbstractExample;
 
@@ -19,9 +16,6 @@ public class StreamApiExample extends AbstractExample {
     private enum Gender {
         MALE, FEMALE;
     }
-
-    @Inject
-    private ResourceBundle bundle;
 
     @Override
     public String run(String... arguments) {
@@ -148,7 +142,7 @@ public class StreamApiExample extends AbstractExample {
 
     @Override
     public String getDescription() {
-        return String.format(bundle.getString("example.streamApi.description"),
+        return String.format(super.getDescription(),
                 Person.class.getSimpleName());
     }
 
