@@ -1,5 +1,6 @@
 package jep.main;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -193,6 +194,15 @@ public class MainFrameController {
         argumentsText = argumentsText.trim();
         argumentsText = argumentsText.replaceAll("\\s+", " ");
         String[] arguments = argumentsText.split(" ");
+        //avoid empty fields
+        List<String> actualArguments = new ArrayList<>();
+        for (String arg: arguments) {
+            if (!arg.equals("")) {
+                actualArguments.add(arg);
+            }
+        }
+        arguments = new String[actualArguments.size()];
+        actualArguments.toArray(arguments);
         return arguments;
     }
 

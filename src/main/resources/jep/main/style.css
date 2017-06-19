@@ -34,3 +34,10 @@
 .tree-cell{
 	-fx-text-fill: #e3e3e3;
 }
+
+.tree-cell:focused{
+	-fx-text-fill: #e3e3e3;
+    -fx-control-inner-background: #1478ff;
+    -fx-background-color: #1478ff;
+    -fx-base: #1478ff;
+}

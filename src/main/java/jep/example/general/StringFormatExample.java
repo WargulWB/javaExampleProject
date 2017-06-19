@@ -17,13 +17,13 @@ public class StringFormatExample extends AbstractExample {
         logln("[1] String: " + fullName);
         logln("[2] int: " + age);
         logln("[3] double: " + perMilleValue);
-        logln("Unformatted text: " + text);
-        logln("  Formatted text: " + String.format(text, fullName, age, perMilleValue));
+        logln(">> Unformatted text: " + text);
+        logln(">>   Formatted text: " + String.format(text, fullName, age, perMilleValue));
         logln("The following text is formatted using the same parameters and a slightly different text.");
         logln("To force a defined floating value format and usage of the US locale (in the above example the format is default locale dependend).");
         logln("(That means the output looks for example like '1,300000' in the German locale while it looks like '1.300000' in the US locale.)");
         text = "%s of age %d was caught driving with a per mille value of %.2f.";
-        logln("  Formatted text: " + String.format(Locale.US, text, fullName, age, perMilleValue));
+        logln(">>   Formatted text: " + String.format(Locale.US, text, fullName, age, perMilleValue));
         logLineSeparator();
         
         logln("The following example shows how to write a table of formated text.");
@@ -70,10 +70,10 @@ public class StringFormatExample extends AbstractExample {
         logln("[4] float: " + v);
         logln("[5] double: " + w);
         text = "x:=%1$d is smaller than y:=%2$d, but x:=%1$d is greater than z:=%3$d. x is also greater than w:=%5$.1f, but x is smaller than v:=%4$.1f.";
-        logln("Unformatted Text: " + text);
+        logln(">> Unformatted Text: " + text);
         try (Formatter formatter = new Formatter(Locale.US)) {
             formatter.format(text, x, y, z, v, w);
-            logln("  Formatted Text: " + formatter.toString());
+            logln(">>   Formatted Text: " + formatter.toString());
         }
 
         return getLoggedText();

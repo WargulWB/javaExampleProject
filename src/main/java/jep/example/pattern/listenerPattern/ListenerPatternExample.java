@@ -27,7 +27,7 @@ public class ListenerPatternExample extends AbstractExample implements WorldMode
     public void update(WorldModel model) {
         logLineSeparator();
         logln(this.getClass().getSimpleName() + "#update(WorldModel)-method:");
-        logln("The world models state changed to " + model.getState() + ".");
+        logln(">> The world models state changed to " + model.getState() + ".");
         logLineSeparator();
     }
 

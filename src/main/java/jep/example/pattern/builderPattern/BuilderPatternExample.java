@@ -17,14 +17,14 @@ public class BuilderPatternExample extends AbstractExample {
         Person.Builder personBuilder = new Person.Builder();
         personBuilder.setFirstName("Amy").setLastName("Doe").setAge(27);
         Person person = personBuilder.build();
-        logln("Constructed: " + person.toString());
+        logln(">> Constructed: " + person.toString());
         logln();
 
         logln("Constructing a new person by using the builder. Set all required variables as well as the optional mid names variable.");
         personBuilder = new Person.Builder();
         personBuilder.setFirstName("Bob").setMidNames("Trudy").setLastName("Doe").setAge(30);
         person = personBuilder.build();
-        logln("Constructed: " + person.toString());
+        logln(">> Constructed: " + person.toString());
         logln();
 
         logln("Constructing a new person by using the builder. Set all required variables except the first name.");
@@ -33,7 +33,7 @@ public class BuilderPatternExample extends AbstractExample {
         try {
             person = personBuilder.build();
         } catch (AssertionError err) {
-            logln("Caught: " + err.toString());
+            logln(">> Caught: " + err.toString());
         }
         logln();
 
@@ -42,7 +42,7 @@ public class BuilderPatternExample extends AbstractExample {
             personBuilder = new Person.Builder();
             personBuilder.setAge(-1);
         } catch (IllegalArgumentException exc) {
-            logln("Caught: " + exc.toString());
+            logln(">> Caught: " + exc.toString());
         }
 
         return getLoggedText();

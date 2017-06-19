@@ -26,14 +26,14 @@ public class LambdaExpressionExample extends AbstractExample {
         int y = f.apply(a, b);
         logln("The function is defined as: (x1, x2) -> x1 + x2");
         logln("The parameters are: x1=a:=" + a + ", x2=b:=" + b);
-        logln("The result is y=" + y);
+        logln(">> The result is y=" + y);
         logLineSeparator();
 
         logln("The function can be redefined.");
         logln("We redefine the function as : (x1, x2) -> x1 * x2");
         f = (x1, x2) -> x1 * x2;
         y = f.apply(a, b);
-        logln("The result is y=" + y + " for x1=a:=" + a + ", x2=b:=" + b);
+        logln(">> The result is y=" + y + " for x1=a:=" + a + ", x2=b:=" + b);
         logLineSeparator();
 
         logln("We actually would not need to define our own interface.");
@@ -42,7 +42,7 @@ public class LambdaExpressionExample extends AbstractExample {
         logln("We define the function as the increment function: (x) -> ++x");
         Function<Integer, Integer> g = x -> ++x;
         y = g.apply(a);
-        logln("The result is y=" + y + " for x=a:=" + a);
+        logln(">> The result is y=" + y + " for x=a:=" + a);
         logLineSeparator();
 
         logln("The " + Function.class.getSimpleName()
@@ -52,7 +52,7 @@ public class LambdaExpressionExample extends AbstractExample {
         BiFunction<Integer, Integer, Integer> h = (x1, x2) -> x1 + x2;
         y = h.apply(a, b);
         logln("We define the function  as: (x1, x2) -> x1 + x2");
-        logln("The result is y=" + y + " for x1=a:=" + a + ", x2=b:=" + b);
+        logln(">> The result is y=" + y + " for x1=a:=" + a + ", x2=b:=" + b);
         logLineSeparator();
 
         logln("The " + BiFunction.class.getSimpleName()
@@ -60,7 +60,7 @@ public class LambdaExpressionExample extends AbstractExample {
         h = h.andThen(g);
         logln("We redefine the function h: h':=g(h(x,y)), were h:=(x1,x2) -> x1 + x2 and g:=x -> ++x");
         y = h.apply(a, b);
-        logln("The result is y=" + y + " for x1=a:=" + a + ", x2=b:=" + b);
+        logln(">> The result is y=" + y + " for x1=a:=" + a + ", x2=b:=" + b);
         logLineSeparator();
 
         logln("In most situations a lambda expression will not be assigned to a variable but rather be given to a method.");
@@ -69,9 +69,9 @@ public class LambdaExpressionExample extends AbstractExample {
         logln("We can use a functional interface as a method parameter, which actually allows us to give an implementation via an lambda expression a parameter.");
         logln("We use the local method check(BiFunction<Integer, Integer, Boolean>,int,int):boolean and define the function as: (x1, x2) -> x1 > x2");
         boolean result = check((x1, x2) -> x1 > x2, a, b);
-        logln("The result is '" + result + "' for x1=a:=" + a + ", x2=b:=" + b);
+        logln(">> The result is '" + result + "' for x1=a:=" + a + ", x2=b:=" + b);
         result = check((x1, x2) -> x1 > x2, b, a);
-        logln("The result is '" + result + "' for x1=b:=" + b + ", x2=a:=" + a);
+        logln(">> The result is '" + result + "' for x1=b:=" + b + ", x2=a:=" + a);
         logLineSeparator();
 
         logln("Until this point we only defined mathematical/logical functions over numbers.");
@@ -86,7 +86,7 @@ public class LambdaExpressionExample extends AbstractExample {
         int ageComparisonValue =
                 apply((p1, p2) -> Integer.compare(p1.getAge(), p2.getAge()), kai, thorsten);
         logln("We define our function as: (p1, p2) -> Integer.compare(p1.getAge(), p2.getAge())");
-        logln("For p1:=" + kai + " and p2:=" + thorsten + " the function returns y="
+        logln(">> For p1:=" + kai + " and p2:=" + thorsten + " the function returns y="
                 + ageComparisonValue + " (meaning Kai is older than Thorsten)");
         logLineSeparator();
 
@@ -170,9 +170,9 @@ public class LambdaExpressionExample extends AbstractExample {
             return max;
         });
         if (optionalMax.isPresent()) {
-            logln("The maximal value stored in the data storage was: " + optionalMax.get());
+            logln(">> The maximal value stored in the data storage was: " + optionalMax.get());
         } else {
-            logln("The data storage did not contain any data.");
+            logln(">> The data storage did not contain any data.");
         }
 
         return getLoggedText();
