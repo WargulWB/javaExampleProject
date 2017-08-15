@@ -1,6 +1,9 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'application'
+
+mainClassName = 'jep.main.JavaExamplesProjectMain'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -10,6 +13,12 @@ repositories {
 dependencies {
 	compile 'com.google.inject:guice:4.0'
 	testCompile 'junit:junit:4.12'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'jep.main.JavaExamplesProjectMain'
+    }
 }
 
 task "create-dirs" << {

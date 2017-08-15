@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane prefHeight="600.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jep.main.MainFrameController">
+<BorderPane prefHeight="800.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jep.main.MainFrameController">
 	<bottom>
 		<ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 			<buttons>
@@ -71,6 +71,31 @@
                   </ScrollPane>
                </content>
 				</Tab>
+            <Tab fx:id="tabSourceCode" closable="false" disable="true" text="%mainFrame.code">
+               <content>
+                  <BorderPane>
+                     <left>
+                        <TreeView fx:id="treeViewClasses" prefWidth="350.0" BorderPane.alignment="CENTER" />
+                     </left>
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <center>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <content>
+                              <TextFlow fx:id="textFlowSourceCode" />
+                           </content>
+                           <BorderPane.margin>
+                              <Insets />
+                           </BorderPane.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </ScrollPane>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
 			</tabs>
 		</TabPane>
 	</center>

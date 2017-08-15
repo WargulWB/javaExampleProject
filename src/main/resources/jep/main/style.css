@@ -41,3 +41,12 @@
     -fx-background-color: #1478ff;
     -fx-base: #1478ff;
 }
+
+#text {
+	-fx-text-fill: #e3e3e3;
+}
+
+#boldtext{
+	-fx-text-fill: #c835e7;
+	-fx-font-wight: bold;
+}
