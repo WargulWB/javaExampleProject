@@ -1,7 +1,10 @@
-- JavaFx examples
-- LambdaExpression Examples
--> own functional interface
--> list stream api
-- Optional examples
-- XML io
+- JSON io
+- complex algorithms
+--- optimization algorithms: simulates annealing, tabu search
+--- genetic algorithms
+--- ant algorithm (eventually)
+--- A+ algorithm
+--- Noise generation, pseudo random generation
+--- ...
 - jquery /database
+- JavaFx examples (probably in a different project)
