@@ -6,8 +6,14 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+/**
+ * This class implements a representation of {@link Plane} which uses XML-binding which allows the
+ * class to be used in a {@link javax.xml.bind.JAXBContext}.
+ *
+ */
 @XmlRootElement(name = "plane")
-@XmlType(name = "PlaneType", propOrder = {"flightId", "pilot", "coPilot", "cabinCrewList", "passengerList"})
+@XmlType(name = "PlaneType",
+        propOrder = {"flightId", "pilot", "coPilot", "cabinCrewList", "passengerList"})
 public class XmlTypePlane {
 
     private String flightId;

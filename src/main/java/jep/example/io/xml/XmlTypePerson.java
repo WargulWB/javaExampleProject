@@ -6,6 +6,11 @@ import javax.xml.bind.annotation.XmlType;
 import jep.example.io.xml.Person.Role;
 
 
+/**
+ * This class implements a representation of {@link Person} which uses XML-binding which allows the
+ * class to be used in a {@link javax.xml.bind.JAXBContext}.
+ *
+ */
 @XmlType(name = "PersonType")
 public class XmlTypePerson {
 

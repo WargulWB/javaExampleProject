@@ -19,6 +19,12 @@ import org.xml.sax.SAXException;
 
 import jep.example.io.xml.Person.Role;
 
+/**
+ * This class implements the functionality to convert {@link Plane}- and {@link Person}-objects into
+ * {@link XmlTypePlane}- and {@link XmlTypePerson}-objects, to write those objects into XML-files
+ * and to read them from XML-files.
+ *
+ */
 public class XmlIoPlane {
 
     private static final String XSD_PATH = "/jep/example/io/xml/plane.xsd";
@@ -43,6 +49,12 @@ public class XmlIoPlane {
      */
     private final Schema schema;
 
+    /**
+     * Constructs a new {@link XmlIoPlane}-instance.
+     * 
+     * @throws JAXBException
+     * @throws SAXException
+     */
     public XmlIoPlane() throws JAXBException, SAXException {
         context = JAXBContext.newInstance(XmlTypePlane.class);
         Source schemaSource = new StreamSource(XmlTypePlane.class.getResourceAsStream(XSD_PATH));
@@ -57,6 +69,14 @@ public class XmlIoPlane {
         unmarshaller.setSchema(schema);
     }
 
+    /**
+     * Writes the given <code>plane</code>-instance to the given <code>destination</code>-file.
+     * 
+     * @param plane {@link Plane}-instance which is written to the XML-file
+     * @param destination {@link File}-instance which represents the XMl-file to which the data is
+     *        written
+     * @throws JAXBException
+     */
     public void writePlane(Plane plane, File destination) throws JAXBException {
         Objects.requireNonNull(plane);
         Objects.requireNonNull(destination);
@@ -78,11 +98,26 @@ public class XmlIoPlane {
         marshaller.marshal(planeInfo, destination);
     }
 
+    /**
+     * Reads the data from the given <code>source</code> and generates a corresponding {@link Plane}
+     * -instance.
+     * 
+     * @param source {@link File}-instance which represents the source xml-file
+     * @return {@link Plane}-instance of the read in data
+     * @throws JAXBException
+     */
     public Plane readPlaneXml(File source) throws JAXBException {
         XmlTypePlane planeType = (XmlTypePlane) unmarshaller.unmarshal(source);
         return convertXmlTypePlaneToPlane(planeType);
     }
 
+    /**
+     * Converts the given {@link XmlTypePlane}-instance <code>planeType</code> to a {@link Plane}
+     * -instance which is returned.
+     * 
+     * @param planeType {@link XmlTypePlane}-instance which is converted
+     * @return generated {@link Plane}-instance
+     */
     private Plane convertXmlTypePlaneToPlane(XmlTypePlane planeType) {
         String flightId = planeType.getFlightId();
         Person pilot = convertXmlTypePersonToPerson(planeType.getPilot());
@@ -92,6 +127,13 @@ public class XmlIoPlane {
         return new Plane(flightId, pilot, coPilot, cabinCrewList, passengerList);
     }
 
+    /**
+     * Converts the given list of {@link XmlTypePerson}-instance <code>personTypeList</code> to a
+     * list of {@link Person} -instances which is returned.
+     * 
+     * @param personTypeList list of {@link XmlTypePerson}-instances which is converted
+     * @return generated list of {@link Person}-instance
+     */
     private List<Person> convertToPersonList(List<XmlTypePerson> personTypeList) {
         if (personTypeList == null) {
             return null;
@@ -103,6 +145,13 @@ public class XmlIoPlane {
         return personList;
     }
 
+    /**
+     * Converts the given {@link XmlTypePerson}-instance <code>personType</code> to a {@link Person}
+     * -instance which is returned.
+     * 
+     * @param personType {@link XmlTypePerson}-instance which is converted
+     * @return generated {@link Person}-instance
+     */
     private Person convertXmlTypePersonToPerson(XmlTypePerson personType) {
         if (personType == null) {
             return null;
