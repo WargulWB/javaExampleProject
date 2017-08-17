@@ -149,9 +149,11 @@ public class MainFrameController {
                             new TreeItem<>(new ExampleTreeHeader(type));
                     contentRoot.getChildren().add(rootTypeHeader);
                     addSubTypes(rootTypeHeader, type);
-                    for (Example example : exampleRegistry.getRegisteredExamplesOfType(type)) {
-                        rootTypeHeader.getChildren().add(new TreeItem<>(example));
-                    }
+                    exampleRegistry.getRegisteredExamplesOfType(type).stream()
+                            .sorted((e1, e2) -> bundle.getString(e1.getBundleKey())
+                                    .compareTo(bundle.getString(e2.getBundleKey())))
+                            .forEach(example -> rootTypeHeader.getChildren()
+                                    .add(new TreeItem<>(example)));
                 });
         treeViewExamples.getSelectionModel().selectedItemProperty()
                 .addListener(new ChangeListener<TreeItem<ExampleContent>>() {

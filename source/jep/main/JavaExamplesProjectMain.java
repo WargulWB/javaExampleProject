@@ -23,6 +23,7 @@ import jep.example.general.lambda.LambdaExpressionExample;
 import jep.example.general.matrix.MatrixExample;
 import jep.example.io.WriteAndReadTextFilesPostJava7Example;
 import jep.example.io.WriteAndReadTextFilesPreJava7Example;
+import jep.example.io.xml.XmlIoExample;
 import jep.example.pattern.builderPattern.BuilderPatternExample;
 import jep.example.pattern.listenerPattern.ListenerPatternExample;
 
@@ -76,6 +77,8 @@ public class JavaExamplesProjectMain extends Application {
         exampleRegistry.register(injector.getInstance(WriteAndReadTextFilesPreJava7Example.class),
                 typeIo);
         exampleRegistry.register(injector.getInstance(WriteAndReadTextFilesPostJava7Example.class),
+                typeIo);
+        exampleRegistry.register(injector.getInstance(XmlIoExample.class),
                 typeIo);
     }
 

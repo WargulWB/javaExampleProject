@@ -57,6 +57,28 @@ public class DoubleMatrix {
     }
 
     /**
+     * Calculates the transpose of this matrix.
+     * 
+     * <pre>
+     * Ex.
+     *              [1 4]
+     * [1 2 3]  ->  [2 5]
+     * [4 5 6]      [3 6]
+     * </pre>
+     */
+    public void transpose() {
+        int m = getRowCount();
+        int n = getColumnCount();
+        double[][] transpose = new double[n][m];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                transpose[j][i] = matrix[i][j];
+            }
+        }
+        matrix = transpose;
+    }
+
+    /**
      * Multiplies each field of the matrix by the given <code>scalar</code>.
      * 
      * @param scalar value which is multiplied to each matrix field
@@ -135,6 +157,29 @@ public class DoubleMatrix {
             }
         }
         matrix = result;
+    }
+
+    /**
+     * Calculates the transpose of this matrix.
+     * 
+     * <pre>
+     * Ex.
+     *              [1 4]
+     * [1 2 3]  ->  [2 5]
+     * [4 5 6]      [3 6]
+     * </pre>
+     */
+    public static DoubleMatrix transposeMatrix(DoubleMatrix matrix) {
+        Objects.requireNonNull(matrix);
+        int m = matrix.getRowCount();
+        int n = matrix.getColumnCount();
+        double[][] transpose = new double[n][m];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                transpose[j][i] = matrix.matrix[i][j];
+            }
+        }
+        return new DoubleMatrix(transpose);
     }
 
     /**

@@ -46,6 +46,11 @@ public class MatrixExample extends AbstractExample {
         a.multiplyByMatrix(b);
         logln(">> A (new):\n" + a.getStringRepresentation());
         logLineSeparator();
+        
+        logln("Transpose matrix B.");
+        b.transpose();
+        logln(">> B (new):\n" + b.getStringRepresentation());
+        logLineSeparator();
 
         return getLoggedText();
     }
