@@ -8,7 +8,7 @@ import jep.example.AbstractExample;
 public class StringFormatExample extends AbstractExample {
 
     @Override
-    public String run(String... arguments) {
+    public void run(String... arguments) {
         String fullName = "Bob Andrews";
         int age = 25;
         double perMilleValue = 1.3D;
@@ -75,8 +75,6 @@ public class StringFormatExample extends AbstractExample {
             formatter.format(text, x, y, z, v, w);
             logln(">>   Formatted Text: " + formatter.toString());
         }
-
-        return getLoggedText();
     }
 
     private void logArray(double[][] values) {

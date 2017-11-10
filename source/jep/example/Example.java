@@ -8,12 +8,11 @@ package jep.example;
 public interface Example extends ExampleContent {
 
     /**
-     * Runs the example for the given <code>arguments</code> and returns the logged text.
+     * Runs the example for the given <code>arguments</code>.
      * 
-     * @param arguments
-     * @return text logged during run operation as one {@link String}-object.
+     * @param arguments arguments given as user input
      */
-    String run(String... arguments);
+    void run(String... arguments);
 
     /**
      * Appends the log by the given <code>text</code>.

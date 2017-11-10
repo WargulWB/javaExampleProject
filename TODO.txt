@@ -1,3 +1,4 @@
+- fix matrix example (to allow matrix vector multiplication)
 - JSON io
 - complex algorithms
 --- optimization algorithms: simulates annealing, tabu search

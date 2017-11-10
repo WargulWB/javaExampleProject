@@ -21,7 +21,7 @@ public class WriteAndReadTextFilesPostJava7Example extends AbstractExample {
     private static final int TOTAL_COUNT = COUNT + APPEND_COUNT;
 
     @Override
-    public String run(String... arguments) {
+    public void run(String... arguments) {
         if (validateArguments(arguments)) {
             logln("Argument '" + arguments[0] + "' seems to be valid. Going to run the example.");
 
@@ -37,7 +37,7 @@ public class WriteAndReadTextFilesPostJava7Example extends AbstractExample {
                 }
             } catch (IOException | UnsupportedOperationException | SecurityException exc) {
                 logln("Caught exception on attempt to write the file:\n" + exc.toString());
-                return getLoggedText();
+                return;
             }
 
             logln("Writing '" + TEXT_TO_WRITE + "\\n' " + APPEND_COUNT
@@ -49,18 +49,17 @@ public class WriteAndReadTextFilesPostJava7Example extends AbstractExample {
                 }
             } catch (IOException | UnsupportedOperationException | SecurityException exc) {
                 logln("Caught exception on attempt to write the file:\n" + exc.toString());
-                return getLoggedText();
+                return;
             }
 
-            logln("Reading " + TOTAL_COUNT
-                    + " lines of written file back into an array.");
+            logln("Reading " + TOTAL_COUNT + " lines of written file back into an array.");
 
             List<String> lines;
             try {
                 lines = Files.readAllLines(path, StandardCharsets.UTF_8);
             } catch (IOException | SecurityException exc) {
                 logln("Caught exception on attempt to write the file:\n" + exc.toString());
-                return getLoggedText();
+                return;
             }
 
             logln("Going to log the read in lines (adding a enumeration to the start of every line):");
@@ -71,7 +70,6 @@ public class WriteAndReadTextFilesPostJava7Example extends AbstractExample {
             }
 
         }
-        return getLoggedText();
     }
 
     private boolean validateArguments(String[] arguments) {

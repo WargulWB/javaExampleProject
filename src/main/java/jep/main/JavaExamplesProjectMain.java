@@ -16,11 +16,13 @@ import javafx.stage.Stage;
 import jep.JepModule;
 import jep.example.ExampleRegistry;
 import jep.example.ExampleType;
+import jep.example.correctiveProcedures.CorrectiveProceduresExample;
 import jep.example.general.OptionalExample;
 import jep.example.general.StreamApiExample;
 import jep.example.general.StringFormatExample;
 import jep.example.general.lambda.LambdaExpressionExample;
 import jep.example.general.matrix.MatrixExample;
+import jep.example.geneticAlgorithm.GeneticAlgorithmExample;
 import jep.example.io.WriteAndReadTextFilesPostJava7Example;
 import jep.example.io.WriteAndReadTextFilesPreJava7Example;
 import jep.example.io.xml.XmlIoExample;
@@ -60,10 +62,11 @@ public class JavaExamplesProjectMain extends Application {
         ExampleType typeGeneral = new ExampleType("exampleType.general");
         ExampleType typePattern = new ExampleType("exampleType.patterns");
         ExampleType typeIo = new ExampleType("exampleType.io");
+        ExampleType typeOptimizationAlgorithms = new ExampleType("exampleType.optimizationAlgorithms");
         exampleRegistry.registerType(typeGeneral);
         exampleRegistry.registerType(typePattern);
         exampleRegistry.registerType(typeIo);
-        // exampleRegistry.register(new SingletonPatternExample(), typePattern);
+        exampleRegistry.registerType(typeOptimizationAlgorithms);
         // GENERAL
         exampleRegistry.register(injector.getInstance(LambdaExpressionExample.class), typeGeneral);
         exampleRegistry.register(injector.getInstance(StreamApiExample.class), typeGeneral);
@@ -78,8 +81,12 @@ public class JavaExamplesProjectMain extends Application {
                 typeIo);
         exampleRegistry.register(injector.getInstance(WriteAndReadTextFilesPostJava7Example.class),
                 typeIo);
-        exampleRegistry.register(injector.getInstance(XmlIoExample.class),
-                typeIo);
+        exampleRegistry.register(injector.getInstance(XmlIoExample.class), typeIo);
+        // OPTIMIZATION ALGORiTHMS
+        exampleRegistry.register(injector.getInstance(CorrectiveProceduresExample.class),
+                typeOptimizationAlgorithms);
+        exampleRegistry.register(injector.getInstance(GeneticAlgorithmExample.class),
+                typeOptimizationAlgorithms);
     }
 
     public static void main(String... args) {

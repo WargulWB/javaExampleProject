@@ -10,9 +10,8 @@ public class SingletonPatternExample extends AbstractExample {
     }
 
     @Override
-    public String run(String... arguments) {
+    public void run(String... arguments) {
         // TODO Auto-generated method stub
-        return null;
     }
 
     @Override

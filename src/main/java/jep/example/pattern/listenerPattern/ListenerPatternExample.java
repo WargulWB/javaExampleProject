@@ -1,8 +1,6 @@
 package jep.example.pattern.listenerPattern;
 
 import jep.example.AbstractExample;
-import jep.example.pattern.builderPattern.BuilderPatternExample;
-import jep.example.pattern.builderPattern.Person;
 
 /**
  * This class implements a simple example in which the listener pattern is applied. For this purpose
@@ -12,7 +10,7 @@ import jep.example.pattern.builderPattern.Person;
 public class ListenerPatternExample extends AbstractExample implements WorldModelListener {
 
     @Override
-    public String run(String... arguments) {
+    public void run(String... arguments) {
         logln("Instantiating a new world model with state 0.");
         logln("Adding this example class as listener for the world model.");
         logln("This is possible because this example extends the "
@@ -21,8 +19,6 @@ public class ListenerPatternExample extends AbstractExample implements WorldMode
         model.addListener(this);
         logln("Changing the world model, setting its state to: 5.");
         model.setState(5);
-
-        return getLoggedText();
     }
 
     @Override

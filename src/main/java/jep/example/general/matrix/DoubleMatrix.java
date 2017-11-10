@@ -40,6 +40,35 @@ public class DoubleMatrix {
      * The first dimension of the given array (<code>matrix.length</code> ) is considered to
      * correspond to <code>m</code> while the second dimension ( <code>matrix[0].length</code>) is
      * considered to correspond to <code>n</code>.
+     * <p>
+     * Example 1 - simple matrix:
+     * 
+     * <pre>
+     *     (1, 2)
+     * M = (3, 4), would be created by using the following array as input:
+     *     (5, 6)
+     *     
+     * double[][] a = {{1, 2}, {3, 4}, {5, 6}};
+     * </pre>
+     * <p>
+     * (For the following two example it should be stated, that the use of an explicit vector class
+     * would probably be a better approach.)
+     * <p>
+     * Example 2 - column vector:
+     * 
+     * <pre>
+     *     (1)
+     * v = (2), would be created by using the following array as input:
+     *     (3)
+     * double[][] a = {{1}, {2}, {3}};
+     * </pre>
+     * <p>
+     * Example 3 - row vector:
+     * 
+     * <pre>
+     * v = (1 2 3), would be created by using the following array as input:
+     * double[][] a = {{1, 2, 3}};
+     * </pre>
      * 
      * @param matrix given matrix as array which is wrapped by this constructed instance
      */
@@ -138,11 +167,6 @@ public class DoubleMatrix {
         int n = getColumnCount();
         int mat_m = mat.getRowCount();
         int mat_n = mat.getColumnCount();
-        if (m != mat_n) {
-            throw new IllegalMatrixOperationException("The first dimension 'm' of this matrix is ["
-                    + m + "] and the second dimension 'n' of the given matrix is [" + mat_n
-                    + "], but they have to be equal.");
-        }
         if (n != mat_m) {
             throw new IllegalMatrixOperationException("The second dimension 'n' of this matrix is ["
                     + n + "] and the first dimension 'm' of the given matrix is [" + mat_m
@@ -254,12 +278,6 @@ public class DoubleMatrix {
         int a_n = a.getColumnCount();
         int b_m = b.getRowCount();
         int b_n = b.getColumnCount();
-        if (a_m != b_n) {
-            throw new IllegalMatrixOperationException(
-                    "The first dimension 'm' of the matrix 'a' is [" + a_m
-                            + "] and the second dimension 'n' of the matrix 'b' is [" + b_n
-                            + "], but they have to be equal.");
-        }
         if (a_n != b_m) {
             throw new IllegalMatrixOperationException(
                     "The second dimension 'n' of the matrix 'a' is [" + a_n
@@ -377,5 +395,56 @@ public class DoubleMatrix {
             }
         }
         return sb.toString();
+    }
+
+    /**
+     * Return <tt>true</tt> if matrix is either a row or a column vector, <tt>false</tt> otherwise.
+     * 
+     * @return
+     */
+    public boolean isVector() {
+        return getRowCount() == 1 || getColumnCount() == 1;
+    }
+
+    /**
+     * Return <tt>true</tt> if matrix is a row vector and <tt>false</tt> otherwise.
+     * 
+     * @return
+     */
+    public boolean isRowVector() {
+        return getRowCount() == 1;
+    }
+
+    /**
+     * Return <tt>true</tt> if matrix is a row vector and <tt>false</tt> otherwise.
+     * 
+     * @return
+     */
+    public boolean isColumnVector() {
+        return getColumnCount() == 1;
+    }
+
+    /**
+     * Return <tt>true</tt> if matrix the matrix only holds a single value and <tt>false</tt>
+     * otherwise.
+     * 
+     * @return
+     */
+    public boolean isScalar() {
+        return getRowCount() == 1 && getColumnCount() == 1;
+    }
+
+    /**
+     * Returns the single value hold by a 1 x 1 matrix.
+     * 
+     * @return
+     * @throws IllegalMatrixOperationException if matrix is not of dimension 1 x 1
+     */
+    public double convertToScalar() {
+        if (!isScalar()) {
+            throw new IllegalMatrixOperationException("Matrix holds more than one value"
+                    + " (is not of dimension 1x1) and can not be converted into a scalar.");
+        }
+        return matrix[0][0];
     }
 }

@@ -5,7 +5,6 @@ import java.util.Optional;
 import java.util.Set;
 
 import jep.example.AbstractExample;
-import jep.example.general.StreamApiExample.Person;
 
 /**
  * This class implements an example showing how to use {@link Optional}.
@@ -16,7 +15,7 @@ public class OptionalExample extends AbstractExample {
     private Integer x = null;
 
     @Override
-    public String run(String... arguments) {
+    public void run(String... arguments) {
         logln("We have a variable x which is not of a primitive type. This means the variable can be either null or and actual object.");
         logln("If the vsriable represents a local state, that is totally fine - since we know, when a variable can be null.");
         logln("The problem occurs, if the variable can be accessed from outside, e.x. the variable can be accessed via a getter-Method.");
@@ -107,8 +106,6 @@ public class OptionalExample extends AbstractExample {
         } else {
             logln(">> No such value was found.");
         }
-
-        return getLoggedText();
     }
 
     /**

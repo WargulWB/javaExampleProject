@@ -16,7 +16,7 @@ import jep.example.general.StreamApiExample;
 public class LambdaExpressionExample extends AbstractExample {
 
     @Override
-    public String run(String... arguments) {
+    public void run(String... arguments) {
         logln("This first example shows the usage of the functional interface "
                 + MathFunction.class.getSimpleName() + "\n"
                 + "to define a mathematical operation via a lambda expression and how to calculate the result.");
@@ -174,8 +174,6 @@ public class LambdaExpressionExample extends AbstractExample {
         } else {
             logln(">> The data storage did not contain any data.");
         }
-
-        return getLoggedText();
     }
 
     /**

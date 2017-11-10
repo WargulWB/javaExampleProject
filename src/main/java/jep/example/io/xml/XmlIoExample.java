@@ -21,9 +21,9 @@ public class XmlIoExample extends AbstractExample {
     private static final String XML_FILE_NAME = "plane.xml";
 
     @Override
-    public String run(String... arguments) {
+    public void run(String... arguments) {
         if (!validateArguments(arguments)) {
-            return getLoggedText();
+            return;
         }
         String path = arguments[0] + File.separator + XML_FILE_NAME;
         File xmlFile = new File(path);
@@ -60,8 +60,6 @@ public class XmlIoExample extends AbstractExample {
             exc.printStackTrace();
         }
         logPlane(plane);
-
-        return getLoggedText();
     }
 
     /**

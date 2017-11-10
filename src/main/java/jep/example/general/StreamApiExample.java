@@ -18,7 +18,7 @@ public class StreamApiExample extends AbstractExample {
     }
 
     @Override
-    public String run(String... arguments) {
+    public void run(String... arguments) {
         Set<Person> persons = new HashSet<>();
         persons.add(new Person("Bob", "Andrews", 25, Gender.MALE));
         persons.add(new Person("Alice", "Liddell", 13, Gender.FEMALE));
@@ -138,7 +138,6 @@ public class StreamApiExample extends AbstractExample {
         } else {
             logln("None found.");
         }
-        return getLoggedText();
     }
 
     @Override

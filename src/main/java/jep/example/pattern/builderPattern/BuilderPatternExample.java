@@ -10,7 +10,7 @@ import jep.example.AbstractExample;
 public class BuilderPatternExample extends AbstractExample {
 
     @Override
-    public String run(String... arguments) {
+    public void run(String... arguments) {
         logNoArgumentsRequired();
 
         logln("Constructing a new person by using the builder. Set all required variables.");
@@ -44,8 +44,6 @@ public class BuilderPatternExample extends AbstractExample {
         } catch (IllegalArgumentException exc) {
             logln(">> Caught: " + exc.toString());
         }
-
-        return getLoggedText();
     }
 
     @Override
