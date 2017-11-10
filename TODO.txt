@@ -1,8 +1,8 @@
-- fix matrix example (to allow matrix vector multiplication)
+- fix gradle build
 - JSON io
 - complex algorithms
---- optimization algorithms: simulates annealing, tabu search
---- genetic algorithms
+--- optimization algorithms: tabu search
+--- genetic algorithms, at adaptive mutation rate and self adapative mutation rate example as well as statistical calculation of ea results
 --- ant algorithm (eventually)
 --- A+ algorithm
 --- Noise generation, pseudo random generation

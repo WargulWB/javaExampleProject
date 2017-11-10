@@ -149,7 +149,6 @@ public class GeneticAlgorithmExample extends AbstractExample {
                 parent2 = parentList.get(RANDOM.nextInt(populationSize));
             }
             int range = parent1.getCities().length;
-            assert range % 2 == 0 && range == parent2.getCities().length;
             int blockSize = range / 2;
             int splitPosition1 = RANDOM.nextInt(range);
             int splitPosition2 = (splitPosition1 + blockSize) % range;
