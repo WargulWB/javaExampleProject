@@ -22,6 +22,7 @@ import jep.example.general.StreamApiExample;
 import jep.example.general.StringFormatExample;
 import jep.example.general.lambda.LambdaExpressionExample;
 import jep.example.general.matrix.MatrixExample;
+import jep.example.general.preference.PreferenceExample;
 import jep.example.geneticAlgorithm.GeneticAlgorithmExample;
 import jep.example.io.WriteAndReadTextFilesPostJava7Example;
 import jep.example.io.WriteAndReadTextFilesPreJava7Example;
@@ -73,6 +74,7 @@ public class JavaExamplesProjectMain extends Application {
         exampleRegistry.register(injector.getInstance(StringFormatExample.class), typeGeneral);
         exampleRegistry.register(injector.getInstance(MatrixExample.class), typeGeneral);
         exampleRegistry.register(injector.getInstance(OptionalExample.class), typeGeneral);
+        exampleRegistry.register(injector.getInstance(PreferenceExample.class), typeGeneral);
         // PATTERN
         exampleRegistry.register(injector.getInstance(BuilderPatternExample.class), typePattern);
         exampleRegistry.register(injector.getInstance(ListenerPatternExample.class), typePattern);

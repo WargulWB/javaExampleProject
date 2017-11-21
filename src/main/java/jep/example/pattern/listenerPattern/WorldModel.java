@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * This class implements a simple world model which consists of a single state defined by a number
+ * This class implements a simple world model which consists of a single state defined by an integer
  * which can changed from the outside.
  *
  */

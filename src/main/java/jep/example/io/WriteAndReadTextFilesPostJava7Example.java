@@ -58,7 +58,7 @@ public class WriteAndReadTextFilesPostJava7Example extends AbstractExample {
             try {
                 lines = Files.readAllLines(path, StandardCharsets.UTF_8);
             } catch (IOException | SecurityException exc) {
-                logln("Caught exception on attempt to write the file:\n" + exc.toString());
+                logln("Caught exception on attempt to read the file:\n" + exc.toString());
                 return;
             }
 
